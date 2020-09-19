@@ -1,0 +1,36 @@
+<div class="media-table">
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr class="pretty">
+      <th>
+        <label>First Name</label>
+      </th>
+      <th>
+        <label>Last Name</label>
+      </th>
+      <th>
+        <label>Email</label>
+      </th>
+      <th>
+        <label>Error</label>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% if @all_users.present?  %>
+      <% @all_users.each do |user| %>
+        <tr>
+          <td><%=user.first_name.present? ? user.first_name : "N-A" %></td>
+          <td><%=user.last_name.present? ? user.last_name : "N-A" %></td>
+          <td><%=user.email.present? ? user.email : "N-A" %></td>
+          <td><%=show_errors(user,[:first_name,:last_name,:email])%></td>
+        </tr>
+
+      <%end%>
+    <% else %>
+    <% end %>
+
+    </tbody>
+  </table>
+</div>
